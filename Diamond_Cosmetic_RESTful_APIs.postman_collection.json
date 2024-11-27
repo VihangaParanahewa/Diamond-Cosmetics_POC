@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "bb8db5c6-18ea-4de1-9234-0c7adaf2f5e5",
+		"name": "Diamond_Cosmetic_RESTful_APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4514033"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Retrieve_Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products?page=3&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Glow - Day Creame\",\r\n    \"categoryId\": \"6\",\r\n    \"description\": \"Keeps your skin from being damaged while you go through your everyday tasks\",\r\n    \"directions\": \"HOW TO USE:\\n\\nCleanse area to apply and apply cream\",\r\n    \"price\": 3350,\r\n    \"in_stock\": 228\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Glow - Day Creame\",\r\n    \"categoryId\": \"5\",\r\n    \"description\": \"Keeps your skin from being damaged while you go through your everyday tasks\",\r\n    \"directions\": \"HOW TO USE:\\n\\nCleanse area to apply and apply cream\",\r\n    \"price\": 3450,\r\n    \"in_stock\": 224\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/products/{{product_id_to_update}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/products/{{product_id_to_delete}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Retrieve_Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/categories"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "10"
+		},
+		{
+			"key": "product_id_to_delete",
+			"value": "7"
+		},
+		{
+			"key": "product_id_to_update",
+			"value": "10"
+		}
+	]
+}
