@@ -1,0 +1,121 @@
+<main>
+  <div class="album py-5 bg-body-tertiary">
+
+    <form #productForm="ngForm" class="row g-3 mx-auto" style="max-width: 600px;" (ngSubmit)="onSubmit(productForm)">
+      <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ successMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ errorMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <h5 class="card-title text-center">UPDATE THE PRODUCT</h5>
+      <hr>
+      <div class="col-md-6">
+        <label for="productName" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="productName"
+          name="name"
+          [(ngModel)]="product.name"
+          #name="ngModel"
+          required
+          minlength="3"
+        />
+        <span class="text-danger" *ngIf="name.touched && name.invalid">
+          <small *ngIf="name.errors?.['required']">Name is required.</small>
+          <small *ngIf="name.errors?.['minlength']">Name must be at least 3 characters.</small>
+        </span>
+      </div>
+      <div class="col-md-6">
+        <label for="productCategory" class="form-label">Category</label>
+        <select
+          class="form-select"
+          id="productCategory"
+          name="categoryId"
+          [(ngModel)]="product.categoryId"
+          #categoryId="ngModel"
+          required
+        >
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+        <span class="text-danger" *ngIf="categoryId.touched && categoryId.invalid">
+          <small *ngIf="categoryId.errors?.['required']">Category is required.</small>
+        </span>
+      </div>
+      <div class="col-12">
+        <label for="productDescription" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="productDescription"
+          name="description"
+          rows="2"
+          [(ngModel)]="product.description"
+          #description="ngModel"
+          required
+        ></textarea>
+        <span class="text-danger" *ngIf="description.touched && description.invalid">
+          <small>Description is required.</small>
+        </span>
+      </div>
+      <div class="col-12">
+        <label for="productDirection" class="form-label">Directions</label>
+        <textarea
+          class="form-control"
+          id="productDirection"
+          name="directions"
+          rows="4"
+          [(ngModel)]="product.directions"
+          #directions="ngModel"
+          required
+        ></textarea>
+        <span class="text-danger" *ngIf="directions.touched && directions.invalid">
+    <small *ngIf="directions.errors?.['required']">Directions are required.</small>
+  </span>
+      </div>
+      <div class="col-6">
+        <label for="price" class="form-label">Price (LKR)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          name="price"
+          [(ngModel)]="product.price"
+          #price="ngModel"
+          required
+          min="0.01"
+        />
+        <span class="text-danger" *ngIf="price.touched && price.invalid">
+          <small *ngIf="price.errors?.['required']">Price is required.</small>
+          <small *ngIf="price.errors?.['min']">Price must be greater than 0.</small>
+        </span>
+      </div>
+      <div class="col-6">
+        <label for="in_stock" class="form-label">Stock Count</label>
+        <input
+          type="number"
+          class="form-control"
+          id="in_stock"
+          name="in_stock"
+          [(ngModel)]="product.in_stock"
+          #in_stock="ngModel"
+          required
+          min="1"
+        />
+        <span class="text-danger" *ngIf="in_stock.touched && in_stock.invalid">
+          <small *ngIf="in_stock.errors?.['required']">Stock count is required.</small>
+          <small *ngIf="in_stock.errors?.['min']">Stock must be greater than 0.</small>
+        </span>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-secondary" [disabled]="productForm.invalid">PUBLISH</button>
+      </div>
+    </form>
+  </div>
+</main>

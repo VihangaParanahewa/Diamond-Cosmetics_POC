@@ -1,0 +1,16 @@
+# Browserslist configuration
+
+# Include browsers used by more than 0.5% of global users
+> 0.5%
+
+# Include the last 2 versions of each major browser
+last 2 versions
+
+# Include Firefox Extended Support Release (ESR)
+Firefox ESR
+
+# Exclude browsers that are no longer maintained
+not dead
+
+# Exclude Internet Explorer 11 and below
+not IE 11
