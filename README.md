@@ -42,16 +42,19 @@ To run this project locally, ensure you have the following installed:
 4. Verify that the server is running by checking its configured port (default):
    ```bash
    http://localhost:3000/
-5. Navigate to the `Client` directory:
+
+### 3. Set Up the Frontend
+
+1. Navigate to the `Client` directory:
    ```bash
    cd Client
-6. Install the required Angular dependencies:
+2. Install the required Angular dependencies:
    ```bash
    npm install
-7. Start the Angular development server:
+3. Start the Angular development server:
    ```bash
    ng serve
-8. The Angular app will run at:
+4. The Angular app will run at:
    ```bash
    http://localhost:4200/
 
